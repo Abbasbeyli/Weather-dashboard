@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-left">
+                <button class="border-btn">
+                    <i class="fa-solid fa-border-all"></i>
+                </button>
+                <button class="bell-btn">
+                    <i class="fa-regular fa-bell"></i>
+                </button>
+            <div class="nav-location">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>Dhaka, Bangladesh</span>
+            </div>
+            </div>
+            <div class="nav-center">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search City"/>
+            </div>
+            <div class="nav-right">
+                <button class="toggle-dark-mode-btn" id="themeToggleBtn">
+                    <i class="fa-regular fa-moon" id="themeIcon"></i>
+                </button>
+                <img src="assets/img/profile.svg" alt="User Avatar" class="user-avatar">
+            </div>
+        </nav>
+    <div class="tab">
+        <div class="left-tab">
+            <span>Today</span>
+            <span>Tomorrow</span>
+            <span class="left-tab-active">Next 7 days</span>
+        </div>
+        <div class="right-tab">
+            <div class="toggle-card">
+                <button class="toggle-active-btn">Forecast</button>
+                <button class="toggle-btn">Air Quality</button>
+            </div>
+            <p>Chance Of Rain</p> 
+        </div>
+    </div>
+    <div class="weather-card">
+        <div class="day-active-day">
+            <div class="day-time">
+            <p>Friday</p>
+            <span>11:45 AM</span>
+            </div>
+            <div class="day-temp">
+            <span>16°</span>
+            <img src="/assets/img/Sunnny Windy Icon 1.svg" alt="Weather Icon" />
+            </div>
+            <div class="day-description">
+                <div class="day-description-left">
+                    <p>Real Feel <b>18°</b></p>
+                    <p>Wind N-E. <b>6-7km/h</b></p>
+                    <p>Pressure <b>100MB</b></p>
+                    <p>Humidity <b>51%</b></p>
+                </div>
+                <div class="day-description-right">
+                    <p> Sunrise <b>5:30AM</b></p>
+                    <p> Sunset <b>6:45PM</b></p>
+                </div>
+            </div>
+        </div>
+        <div class="week-days-container">
+            <div class="day-cards">
+                <p class="card-title">SAT</p>
+                 <div class="card-divider"></div>               
+                <img class="day-cards-img" src="/assets/img/SAT.svg" alt="Saturday" />
+                <span class="temp">10°</span>
+            </div>
+
+            <div class="day-cards">
+                <p class="card-title">SUN</p>
+                <div class="card-divider"></div>
+                <img class="day-cards-img" src="/assets/img/Sunday.svg" alt="Sunday" />
+                <span class="temp">15°</span>
+            </div>
+            <div class="day-cards">
+                <p class="card-title">MON</p>
+                <div class="card-divider"></div>
+                <img class="day-cards-img" src="/assets/img/Monday.svg" alt="Monday" />
+                <span class="temp">11°</span>
+            </div> 
+
+            <div class="day-cards">
+                <p class="card-title">TUE</p>
+                <div class="card-divider"></div>
+                <img class="day-cards-img" src="/assets/img/Tuesday.svg" alt="Tuesday" />
+                <span class="temp">10°</span>
+            </div>
+
+            <div class="day-cards">
+                <p class="card-title">WED</p>
+                <div class="card-divider"></div>
+                <img class="day-cards-img" src="/assets/img/Wednesday.svg" alt="Wednesday" />
+                <span class="temp">12°</span>
+            </div>
+            <div class="day-cards">
+                <p class="card-title">THU</p>
+                <div class="card-divider"></div>
+                <img class="day-cards-img" src="/assets/img/Thursday.svg" alt="Thursday" />
+                <span class="temp">10°</span>
+            </div>
+        <div class="chart-container" style="width: 100%; max-width: 620px; margin-top: 24px;">
+            <canvas id="weatherChart"></canvas>
+        </div>
+        </div>
+    </div>
+    <div class="overview-header">
+        <h1>Today's Overview</h1>
+        <div class="overview-header-cards">
+            <p>Other cities</p>
+            <p>See all</p>
+        </div>
+    </div>
+    <div class="overview">
+        <div class="overview-cards">
+            <div class="wind-status-card">
+                <h4>Wind Status</h4>
+                <img src="/assets/img/Wind status.svg" alt="Wind Icon" /> 
+                <span><b>7.50</b> km/h</span>
+                <span>6.20 AM</span>
+            </div>
+            <div class="uv-index-card">
+                <h4>UV Index</h4>
+                <img src="/assets/img/UV Index.svg" alt="UV Icon" /> 
+                <span><b>5.50</b>UV</span>
+            </div>
+            <div class="humidity-card">
+                <h4>Humidity</h4>
+                <img src="/assets/img/Humidity.svg" alt="Humidity" />
+                <div class="humidity-content">
+                    <span><b>51%</b></span>                    
+                    <img src="/assets/img/Humidity-icon.svg" alt="Humidity Icon" />
+                    <span>The dew point is 270 right now</span>
+                </div>
+            </div>
+            <div class="visibility-card">
+                <h4>Visibility</h4>
+                <img src="/assets/img/Visibility.svg" alt="Visibility" />
+                <div class="visibility-content">
+                <span><b>04</b> km </span>
+                <img src="/assets/img/visibility-icon.svg" alt="Visibility Icon" />
+                <span>Haze is affecting visibility</span>
+                </div>            
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner-text">
+                <h3>Explore global map of wind weather and ocean condition</h3>
+            </div>
+            <img src="/assets/img/image.png" alt="Global map" />
+            <button class="banner-btn">GET STARTED</button>
+        </div>
+<div class="cities">
+    
+    <div class="city-card">
+        <div class="city-info">
+            <h4 class="country-name">China</h4>
+            <h3 class="city-name">Beijing</h3>
+            <p class="weather-description">Cloudy</p>
+        </div>
+        <img src="/assets/img/Beijing.svg" alt="Beijing" />
+    </div>
+
+    <div class="city-card">
+        <div class="city-info">
+            <h4 class="country-name">US</h4>
+            <h3 class="city-name">California</h3>
+            <p class="weather-description">Windy</p>
+        </div>
+        <img src="/assets/img/California.svg" alt="California" />
+    </div>
+
+    <div class="city-card">
+        <div class="city-info">
+            <h4 class="country-name">Dubai</h4>
+            <h3 class="city-name">Arab Emirates</h3>
+            <p class="weather-description">Mostly Sunny</p>
+        </div>
+        <img src="/assets/img/Arab Emirates.svg" alt="Arab Emirates" />
+    </div>
+
+    <div class="city-card">
+        <div class="city-info">
+            <h4 class="country-name">Canada</h4>
+            <h3 class="city-name">Charlottetown</h3>
+            <p class="weather-description">Light SnowShower</p>
+        </div>
+        <img src="/assets/img/Charlottetown.svg" alt="Charlottetown" />
+    </div>
+</div>
+</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
